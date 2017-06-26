@@ -31,7 +31,7 @@ var Class = (function() {
 
         function klass() {
             /*
-                Below are two fixes we found will resolve the issue, they seem to produce ifferent invoker signatures for the MethodHandle
+                Below are two fixes we found will resolve the issue, they seem to produce different invoker signatures for the MethodHandle
              */
 
             // FIX 1 produces MethodHandle(ScriptFunction,Object,Object[])Object
