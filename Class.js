@@ -30,8 +30,17 @@ var Class = (function() {
             parent = properties.shift();
 
         function klass() {
+            /*
+                Below are two fixes we found will resolve the issue, they seem to produce ifferent invoker signatures for the MethodHandle
+             */
+
+            // FIX 1 produces MethodHandle(ScriptFunction,Object,Object[])Object
             //var foo = $A(arguments);
+
+            // FIX 2 produces MethodHandle(Object,Object[])Object
             //arguments.length;
+
+
             this.initialize.apply(this, arguments);
         }
 
