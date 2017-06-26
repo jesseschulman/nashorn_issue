@@ -49,8 +49,11 @@ public class Reproducer {
             ScriptObjectMirror subClass = (ScriptObjectMirror) require("SubClass.js");
             ScriptObjectMirror argObject = (ScriptObjectMirror) ((ScriptObjectMirror) globalBindings.getMember("Object")).newObject();
             argObject.put("foo", "bar");
+
+            // with one of the fixes in place, the newObject call below will print 3 arguments, none of which are undefined
+            // without a fix in place only the first argument has a value, the 2nd/3rd arguments print undefined
             ScriptObjectMirror subClassInstance = (ScriptObjectMirror) subClass.newObject("arg1 from JSObject", argObject, "arg3 from JSObject");
-            return subClassInstance;
+            return "done";
         }
     }
 
